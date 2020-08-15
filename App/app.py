@@ -62,6 +62,7 @@ def loadCSVFile (file, lst, sep=";"):
     
     t1_stop = process_time() #tiempo final
     print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
+    print(lst)
 
 def printMenu():
     """
