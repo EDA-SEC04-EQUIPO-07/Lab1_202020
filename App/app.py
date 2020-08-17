@@ -107,14 +107,13 @@ def countElementsByCriteria(criteria, column, lst):
     """
     Retorna la cantidad de elementos que cumplen con un criterio para una columna dada
     """
-    for elemento in lst:
-        for pelicula in elemento:
-            for datos in pelicula:
-                for dato in datos:
-                    print(dato)
-                    print('\n')
-    
-    return 0
+    contador=0
+    for diccionario in lst:
+        for key in diccionario:
+            if key == column:
+                if diccionario[key]==criteria:
+                    contador+=1
+    return contador
 
 
 def main():
@@ -144,7 +143,8 @@ def main():
                 print("Coinciden ",counter," elementos con el crtierio: ", criteria  )
             elif int(inputs[0])==4: #opcion 4
                 criteria =input('Ingrese el criterio de búsqueda\n')
-                counter=countElementsByCriteria(criteria,0,lista)
+                columna=input('Ingrese la Columna que desea filtar: ')
+                counter=countElementsByCriteria(criteria,columna,lista)
                 print("Coinciden ",counter," elementos con el crtierio: '", criteria ,"' (en construcción ...)")
             elif int(inputs[0])==0: #opcion 0, salir
                 sys.exit(0)
