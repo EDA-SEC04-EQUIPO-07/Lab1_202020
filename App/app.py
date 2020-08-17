@@ -110,11 +110,9 @@ def countElementsByCriteria(criteria, column, lst):
     contador=0
     for diccionario in lst:
         for key in diccionario:
-            if key == column:
-                if diccionario[key]==criteria:
+            if key == column and diccionario[key]==criteria:
                     contador+=1
     return contador
-
 
 def main():
     """
