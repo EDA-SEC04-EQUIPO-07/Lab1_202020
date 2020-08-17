@@ -62,6 +62,7 @@ def loadCSVFile (file, lst, sep=";"):
     
     t1_stop = process_time() #tiempo final
     print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
+    print(lst)
 
 
 def printMenu():
@@ -106,6 +107,13 @@ def countElementsByCriteria(criteria, column, lst):
     """
     Retorna la cantidad de elementos que cumplen con un criterio para una columna dada
     """
+    for elemento in lst:
+        for pelicula in elemento:
+            for datos in pelicula:
+                for dato in datos:
+                    print(dato)
+                    print('\n')
+    
     return 0
 
 
