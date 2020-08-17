@@ -154,7 +154,7 @@ def findmovies(director:str, lst:list, lst2:list)->dict:
     ans["promedio"]=average
     return ans
 
-#Menu
+#menu
 
 def printMenu():
     """
@@ -170,6 +170,7 @@ def printMenu():
     print("5- Consultar elementos a partir de dos listas.")
     print("6- Consultar peliculas buenas de un director.")
     print("0- Salir")
+    print("-"*50)
 
 def main():
     """
@@ -210,7 +211,7 @@ def main():
                 name=input("Escriba el nombre del director del cual desea saber buenas peliculas:\n")
                 ans=findmovies(name,lista,lista2)
                 print("\nLa cantidad de peliculas buenas de ese dierector son: ",ans["meter"])
-                print("\nLa votacion promedio fue: ",ans["average"])
+                print("\nLa votacion promedio fue: "+ str(ans["average"])+ " y el numero de peliculas fue: "+str(ans["meter"]))
             elif int(inputs[0])==0: #opcion 0, salir
                 sys.exit(0)
 
