@@ -62,8 +62,24 @@ def loadCSVFile (file, lst, sep=";"):
     
     t1_stop = process_time() #tiempo final
     print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
-    print(lst)
 
+def loadCSFile2(file, lst2, sep=';')->list:
+    del lst2[:]
+    print("Cargando archivo ....")
+    t1_start = process_time() #tiempo inicial
+    dialect = csv.excel()
+    dialect.delimiter=sep
+    try:
+        with open(file, encoding="utf-8") as csvfile:
+            spamreader = csv.DictReader(csvfile, dialect=dialect)
+            for row in spamreader: 
+                lst2.append(row)
+    except:
+        del lst[:]
+        print("Se presento un error en la carga del archivo")
+    
+    t1_stop = process_time() #tiempo final
+    print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
 
 def printMenu():
     """
@@ -114,20 +130,25 @@ def countElementsByCriteria(criteria, column, lst):
                     contador+=1
     return contador
 
-def findmovies(director, lst)->dict:
+def findmovies(director, lst, lst2)->dict:
     ans={}
     meter=0
     average=0
     for element in lst:
         drt=element["director_name"].lower()
         vote=int(element["vote_average"])
-        if director == drt and vote >=6:
-            meter+=1
-            average+=vote
+        if director == drt:
+            i_d=element["id"]
+            for pelicula in lst2:
+                if pelicula["id"]==i_d:
+                    vote=int(pelicula["vote_average"])
+                    if vote >=6:
+                        meter+=1
+                        average+=vote
     average=(average/meter)
     ans["contador"]==meter
     ans["promedio"]=average
-    return average
+    return ans
 
 def main():
     """
