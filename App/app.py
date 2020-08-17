@@ -1,3 +1,4 @@
+
 """
  * Copyright 2020, Departamento de sistemas y Computación, Universidad de Los Andes
  * 
@@ -56,6 +57,24 @@ def loadCSVFile (file, lst, sep=";"):
             spamreader = csv.DictReader(csvfile, dialect=dialect)
             for row in spamreader: 
                 lst.append(row)
+    except:
+        del lst[:]
+        print("Se presento un error en la carga del archivo")
+    
+    t1_stop = process_time() #tiempo final
+    print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
+    
+def loadCSFile2(file, lst2, sep=';')->list:
+    del lst2[:]
+    print("Cargando archivo ....")
+    t1_start = process_time() #tiempo inicial
+    dialect = csv.excel()
+    dialect.delimiter=sep
+    try:
+        with open(file, encoding="utf-8") as csvfile:
+            spamreader = csv.DictReader(csvfile, dialect=dialect)
+            for row in spamreader: 
+                lst2.append(row)
     except:
         del lst[:]
         print("Se presento un error en la carga del archivo")
@@ -123,12 +142,22 @@ def countElementsByCriteria(criteria, column, lst):
     """
     Retorna la cantidad de elementos que cumplen con un criterio para una columna dada
     """
+<<<<<<< HEAD
     contador=0
     for diccionario in lst:
         for key in diccionario:
             if key.lower() == column.lower() and diccionario[key].lower() ==criteria.lower():
                     contador+=1
     return contador
+=======
+   contador=0
+   for diccionario in lst:
+       for key in diccionario:
+           if key == column and diccionario[key]==criteria:
+               contador+=1
+   return contador
+   
+>>>>>>> origin/master
 
 def findmovies(director, lst, lst2)->dict:
     ans={}
