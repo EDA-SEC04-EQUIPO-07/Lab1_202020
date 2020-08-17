@@ -208,7 +208,7 @@ def main():
                 name=input("Escriba el nombre del director del cual desea saber buenas peliculas:\n")
                 ans=findmovies(name,lista,lista2)
                 print("\nLa cantidad de peliculas buenas de ese dierector son: ",ans["meter"])
-                print("\nLa votacion promedio fue: ",ans["average"])
+                print("\nLa votacion promedio fue: "+str(ans["average"])+" y la cantidad de peliculas fue: " + str(ans["meter"]))
             elif int(inputs[0])==0: #opcion 0, salir
                 sys.exit(0)
 
