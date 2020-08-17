@@ -110,9 +110,24 @@ def countElementsByCriteria(criteria, column, lst):
     contador=0
     for diccionario in lst:
         for key in diccionario:
-            if key == column and diccionario[key]==criteria:
+            if key.lower() == column.lower() and diccionario[key].lower() ==criteria.lower():
                     contador+=1
     return contador
+
+def findmovies(director, lst)->dict:
+    ans={}
+    meter=0
+    average=0
+    for element in lst:
+        drt=element["director_name"].lower()
+        vote=int(element["vote_average"])
+        if director == drt and vote >=6:
+            meter+=1
+            average+=vote
+    average=(average/meter)
+    ans["contador"]==meter
+    ans["promedio"]=average
+    return average
 
 def main():
     """
