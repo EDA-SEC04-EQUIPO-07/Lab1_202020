@@ -154,6 +154,8 @@ def findmovies(director:str, lst:list, lst2:list)->dict:
     ans["promedio"]=average
     return ans
 
+#Menu
+
 def printMenu():
     """
     Imprime el menu de opciones
