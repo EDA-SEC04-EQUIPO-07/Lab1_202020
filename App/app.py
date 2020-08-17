@@ -75,7 +75,7 @@ def loadCSFile2(file, lst2, sep=';')->list:
             for row in spamreader: 
                 lst2.append(row)
     except:
-        del lst[:]
+        del lst2[:]
         print("Se presento un error en la carga del archivo")
     
     t1_stop = process_time() #tiempo final
