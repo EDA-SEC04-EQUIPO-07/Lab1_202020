@@ -106,7 +106,13 @@ def countElementsByCriteria(criteria, column, lst):
     """
     Retorna la cantidad de elementos que cumplen con un criterio para una columna dada
     """
-    return 0
+   contador=0
+   for diccionario in lst:
+       for key in diccionario:
+           if key == column and diccionario[key]==criteria:
+               contador+=1
+   return contador
+   
 
 
 def main():
